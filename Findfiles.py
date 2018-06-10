@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 base_list = ['doc', 'docx', 'xls', 'xlsx', 'pdf']
 
@@ -23,6 +24,7 @@ for base_list in base_list:
 print '''
 Type "1" to add more
 Type "2" to keep the base extension list
+Type "3" to copy all files to current directory folders
 '''
 new_items = []
 add_extension_selection = raw_input('Your selection: ')
@@ -40,24 +42,37 @@ if add_extension_selection == '1':
 
 elif add_extension_selection == '2':
     print "Using only the base list"
-    pass
+    base_list = ['doc', 'docx', 'xls', 'xlsx', 'pdf']
+    merge_list = base_list + new_items
+    print "Starting to look for items of the selected file extensions - This could take a while"
+    time.sleep(2)
+    for merge_list in merge_list:
+        print merge_list
+        print_to_file = "./" + "search_" + datetime + "/" + merge_list + ".txt"
+        find_interpolation = ("find / -type f -name *.'%s'") % (merge_list)
+        combined_ptf_fi = find_interpolation + ">" + print_to_file
+        os.system(combined_ptf_fi)
+
 elif add_extension_selection == '':
     print 'no selection - Using the base list'
-    pass
+    base_list = ['doc', 'docx', 'xls', 'xlsx', 'pdf']
+    merge_list = base_list + new_items
+    print "Starting to look for items of the selected file extensions - This could take a while"
+    time.sleep(2)
+    for merge_list in merge_list:
+        print merge_list
+        print_to_file = "./" + "search_" + datetime + "/" + merge_list + ".txt"
+        find_interpolation = ("find / -type f -name *.'%s'") % (merge_list)
+        combined_ptf_fi = find_interpolation + ">" + print_to_file
+        os.system(combined_ptf_fi)
 
-base_list = ['doc', 'docx', 'xls', 'xlsx', 'pdf']
-merge_list = base_list + new_items
-
-print "Starting to look for items of the selected file extensions - This could take a while"
-
-for merge_list in merge_list:
-    print merge_list
-    print_to_file = "./" + "search_" + datetime + "/" + merge_list + ".txt"
-    find_interpolation = ("find / -type f -name *.'%s'") % (merge_list)
-    combined_ptf_fi = find_interpolation + ">" + print_to_file
-    os.system(combined_ptf_fi)
+elif add_extension_selection == '3':
+    print "test"
 
 
+###################################################
+###################################################
+###################################################
 
 print '''
 
