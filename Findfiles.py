@@ -28,16 +28,14 @@ new_items = []
 add_extension_selection = raw_input('Your selection: ')
 if add_extension_selection == '1':
     print '''Enter each file extension that you want to look for. When you are done type "done".'''
-    add_to_array = ""
+    add_to_array = "1"
     while add_to_array != 'done':
         add_to_array = raw_input('What is the file extension to add? Do not add the ".": ')
         new_items.append(add_to_array)
         print(new_items)
     else:
-        new_items.pop()
-        pass
         print 'Current extensions:'
-    print base_list
+        print base_list
 
 elif add_extension_selection == '2':
     print "Using only the base list"
