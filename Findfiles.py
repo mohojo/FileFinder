@@ -34,6 +34,7 @@ if add_extension_selection == '1':
         new_items.append(add_to_array)
         print(new_items)
     else:
+        new_items.pop()
         print 'Current extensions:'
         print base_list
 
