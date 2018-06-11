@@ -67,7 +67,7 @@ elif add_extension_selection == '':
         os.system(combined_ptf_fi)
 
 elif add_extension_selection == '3':
-    print "test"
+    print "coming soon"
 
 
 ###################################################
